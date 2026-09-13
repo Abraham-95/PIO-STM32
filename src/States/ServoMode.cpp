@@ -10,5 +10,4 @@ void ServoMode::loop() {
 }
 
 void ServoMode::exit() {
-  USB_Printf("Exiting Servo Mode");
 }

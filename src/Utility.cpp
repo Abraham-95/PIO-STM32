@@ -41,7 +41,7 @@ uint8_t UART::read() {
 extern "C" {
   #include "usbd_cdc_if.h"
 }
-
+// Serial Print
 void USB_Print(const char* str) {
   uint16_t len = strlen(str); CDC_Transmit_FS((uint8_t*)str, len);
 }

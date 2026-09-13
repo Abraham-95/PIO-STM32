@@ -57,6 +57,8 @@ extern Robot_Sensor_Data_Package robot_sensor_data;
 extern uint8_t receiveType;
 extern bool controllerConnected;
 extern ButtonEvent readButtonEvent();
+extern UART_HandleTypeDef huart3;
+extern UART comUart;
 
 void setupCom(UART* uart);
 void updateLED();

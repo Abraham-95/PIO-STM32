@@ -3,10 +3,6 @@
 #include "Mode.h"
 #include "Utility.h"
 
-TIM_HandleTypeDef htim1, htim8;
-UART_HandleTypeDef huart3;
-static UART comUart(&huart3);
-
 StandbyMode *standbyMode = new StandbyMode();
 ServoMode *servoMode = new ServoMode();
 CarMode *carMode = new CarMode();
@@ -18,10 +14,8 @@ Mode *previousMode = nullptr;
 enum ControlMode {MANUAL, AUTO};
 ControlMode controlMode = MANUAL;
 
-static MotorDriver motorFL(&htim1, TIM_CHANNEL_1, &htim8, TIM_CHANNEL_1, GPIOD, GPIO_PIN_0);
-
 void setup() {
-  DWT_Init(); comUart.begin(); setupCom(&comUart); motorFL.begin();
+  DWT_Init(); setupCom(&comUart);
 
   currentMode = standbyMode;
   previousMode = nullptr;

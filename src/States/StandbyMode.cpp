@@ -10,5 +10,4 @@ void StandbyMode::loop() {
 }
 
 void StandbyMode::exit() {
-  USB_Printf("Exiting Standby Mode");
 }

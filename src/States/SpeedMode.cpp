@@ -10,5 +10,4 @@ void SpeedMode::loop() {
 }
 
 void SpeedMode::exit() {
-  USB_Printf("Exiting Speed Mode");
 }

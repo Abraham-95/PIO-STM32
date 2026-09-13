@@ -7,6 +7,8 @@ DS_Settings_Data_Package ds_settings_data;
 Robot_Settings_Data_Package robot_settings_data;
 Robot_Sensor_Data_Package robot_sensor_data;
 
+UART_HandleTypeDef huart3;
+UART comUart(&huart3);
 static UART* comUartPtr = nullptr;
 unsigned long ds_last_received_time = 0;
 uint8_t receiveType = DS_CONTROL_DATA;
@@ -41,8 +43,8 @@ void updateLED() {
 }
 
 void setupCom(UART* uart) {
-  comUartPtr = uart;
-  initializeControllerPayload();
+  comUart.begin();
+  comUartPtr = uart; initializeControllerPayload();
 }
 
 void initializeControllerPayload() {
