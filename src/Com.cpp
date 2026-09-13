@@ -70,6 +70,7 @@ bool receiveComData() {
 
   while (comUartPtr->available()) {
     uint8_t byteIn = comUartPtr->read();
+    //USB_Printf("RX: 0x%02X\r\n", byteIn);
     switch (state) {
       case WAIT_HEADER1:
         checksum = 0; if (byteIn == HEADER1) state = WAIT_HEADER2; break;
