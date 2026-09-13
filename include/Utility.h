@@ -18,7 +18,7 @@ void USB_Printf(const char* fmt, ...);
 void DWT_Init(void);
 uint32_t micros(void);
 uint32_t millis(void);
-// dipanggil dari main.c
+// called from main.c
 void setup(void);
 void loop(void);
 void uartByteReceived(void);
@@ -27,7 +27,7 @@ void uartByteReceived(void);
 #endif
 
 #ifdef __cplusplus
-// Serial3
+// Communication
 class UART {
 public:
   UART(UART_HandleTypeDef* handle);

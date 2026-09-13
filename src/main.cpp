@@ -3,6 +3,7 @@
 #include "Mode.h"
 #include "Utility.h"
 
+TIM_HandleTypeDef htim1, htim8;
 UART_HandleTypeDef huart3;
 static UART comUart(&huart3);
 
@@ -17,8 +18,10 @@ Mode *previousMode = nullptr;
 enum ControlMode {MANUAL, AUTO};
 ControlMode controlMode = MANUAL;
 
+static MotorDriver motorFL(&htim1, TIM_CHANNEL_1, &htim8, TIM_CHANNEL_1, GPIOD, GPIO_PIN_0);
+
 void setup() {
-  DWT_Init(); comUart.begin(); setupCom(&comUart);
+  DWT_Init(); comUart.begin(); setupCom(&comUart); motorFL.begin();
 
   currentMode = standbyMode;
   previousMode = nullptr;
@@ -68,9 +71,6 @@ void loop() {
     }
   }
   if (currentMode) {currentMode->loop();}
-  //Freq debug
-  //static uint32_t t0 = micros(); uint32_t now = micros();
-  //Serial.println(now - t0); t0 = now;
 }
 
 void uartByteReceived() {
