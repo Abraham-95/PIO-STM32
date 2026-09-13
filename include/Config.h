@@ -7,10 +7,10 @@
   =================== Motor Pin Config ====================
   Motor         | RPWM (TIM1)     | LPWM (TIM8)     | EN  |
   =========================================================
-  Front Left    | TIM1_CH1 → PE9  | TIM8_CH1 → PC6  | PD0 |
-  Front Right   | TIM1_CH2 → PE11 | TIM8_CH2 → PC7  | PD1 |
-  Rear Left     | TIM1_CH3 → PE13 | TIM8_CH3 → PC8  | PD2 |
-  Rear Right    | TIM1_CH4 → PE14 | TIM8_CH4 → PC9  | PD3 |
+  Front Left    | TIM1_CH1 → PE9  | TIM3_CH1 → PC6  | PD0 |
+  Front Right   | TIM1_CH2 → PE11 | TIM3_CH2 → PC7  | PD1 |
+  Rear Left     | TIM1_CH3 → PE13 | TIM3_CH3 → PC8  | PD2 |
+  Rear Right    | TIM1_CH4 → PE14 | TIM3_CH4 → PC9  | PD3 |
 */
 class MotorDriver {
 public:
