@@ -30,7 +30,7 @@ static void pulseLED(LedState &led) {
 }
 
 static void refreshLED(LedState &led) {
-  if (led.active && HAL_GetTick() - led.onSince >= 1000) {
+  if (led.active && HAL_GetTick() - led.onSince >= 500) {
     HAL_GPIO_WritePin(led.port, led.pin, GPIO_PIN_RESET);
     led.active = false;
   }

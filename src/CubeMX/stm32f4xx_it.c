@@ -233,6 +233,7 @@ extern UART_HandleTypeDef huart3;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
   if (huart->Instance == USART3) {
+    //HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15); HAL_Delay(1000);
     uartByteReceived();
   }
 }

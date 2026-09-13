@@ -3,7 +3,7 @@
 #include "Mode.h"
 #include "Utility.h"
 
-extern UART_HandleTypeDef huart3;
+UART_HandleTypeDef huart3;
 static UART comUart(&huart3);
 
 StandbyMode *standbyMode = new StandbyMode();
@@ -18,9 +18,7 @@ enum ControlMode {MANUAL, AUTO};
 ControlMode controlMode = MANUAL;
 
 void setup() {
-  DWT_Init();
-  comUart.begin();
-  setupCom(&comUart);
+  DWT_Init(); comUart.begin(); setupCom(&comUart);
 
   currentMode = standbyMode;
   previousMode = nullptr;
